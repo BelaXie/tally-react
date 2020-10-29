@@ -1,6 +1,8 @@
 import styled from "styled-components";
 import React from "react";
 import { Link } from "react-router-dom";
+import x from "icons/tag.svg";
+console.log(x);
 
 const NavWrapper = styled.nav`
   line-height: 24px;
