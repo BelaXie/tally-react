@@ -1,9 +1,10 @@
 import styled from "styled-components";
 import React from "react";
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import Icon from "components/Icon";
 
 const NavWrapper = styled.nav`
+  background:white;
   line-height: 24px;
   box-shadow: 0 0 3px rgba(0, 0, 0, 0.25);
   > ul {
