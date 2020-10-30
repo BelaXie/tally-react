@@ -1,45 +1,27 @@
 import React, { useState } from "react";
 import { Wrapper } from "./NumberPadSection/Wrapper";
+import { generateOutput } from "./NumberPadSection/generateOutput";
 
 const NumberPadSection: React.FC = () => {
-  const [output, setOutput] = useState("0");
+  const [output, _setOutput] = useState("0");
+  const setOutput = (output: string) => {
+    if (output.length >= 16) {
+      output = output.slice(0, 16);
+    } else if (output.length === 0) {
+      output = "0";
+    }
+    _setOutput(output);
+  };
   const onClickButtonWrapper = (e: React.MouseEvent) => {
     const text = (e.target as HTMLButtonElement).textContent;
     if (text === null) {
       return;
     }
-    switch (text) {
-      case ".":
-      case "0":
-      case "1":
-      case "2":
-      case "3":
-      case "4":
-      case "5":
-      case "6":
-      case "7":
-      case "8":
-      case "9": {
-        if (output === "0") {
-          setOutput(text);
-        } else {
-          setOutput(output + text);
-        }
-        break;
-      }
-      case "删除": {
-        console.log("删除");
-        break;
-      }
-      case "清空": {
-        console.log("清空");
-        break;
-      }
-      case "OK": {
-        console.log("ok");
-        break;
-      }
+    if (text === "OK") {
+      console.log("ok");
+      return;
     }
+    setOutput(generateOutput(text, output));
   };
   return (
     <Wrapper>
