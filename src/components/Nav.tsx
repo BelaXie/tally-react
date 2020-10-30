@@ -1,9 +1,7 @@
 import styled from "styled-components";
 import React from "react";
-import { Link } from "react-router-dom";
-require("icons/tag.svg");
-require("icons/money.svg");
-require("icons/statistics.svg");
+import { Link, NavLink } from "react-router-dom";
+import Icon from "components/Icon";
 
 const NavWrapper = styled.nav`
   line-height: 24px;
@@ -13,15 +11,23 @@ const NavWrapper = styled.nav`
     > li {
       width: 33.3333%;
       text-align: center;
-      padding: 16px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 4px 0;
-      justify-content: center;
-      > .icon {
-        width: 24px;
-        height: 24px;
+      a {
+        padding: 16px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 4px 0;
+        justify-content: center;
+        > .icon {
+          width: 24px;
+          height: 24px;
+        }
+        &.selected {
+          color: red;
+          > .icon {
+            fill: red;
+          }
+        }
       }
     }
   }
@@ -31,22 +37,22 @@ const Nav = () => {
     <NavWrapper>
       <ul>
         <li>
-          <svg className="icon">
-            <use xlinkHref="#tag" />
-          </svg>
-          <Link to="/tags">标签</Link>
+          <NavLink to="/tags" activeClassName="selected">
+            <Icon name="tag"></Icon>
+            标签
+          </NavLink>
         </li>
         <li>
-          <svg className="icon">
-            <use xlinkHref="#money" />
-          </svg>
-          <Link to="/money">记账</Link>
+          <NavLink to="/money" activeClassName="selected">
+            <Icon name="money"></Icon>
+            记账
+          </NavLink>
         </li>
         <li>
-          <svg className="icon">
-            <use xlinkHref="#statistics" />
-          </svg>
-          <Link to="/statistics">统计</Link>
+          <NavLink to="/statistics" activeClassName="selected">
+            <Icon name="statistics"></Icon>
+            统计
+          </NavLink>
         </li>
       </ul>
     </NavWrapper>
