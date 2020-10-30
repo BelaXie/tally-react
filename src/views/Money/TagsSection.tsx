@@ -52,13 +52,11 @@ const TagsSection: React.FC = () => {
   return (
     <Wrapper>
       <ol>
-        {tags.map((tag) => {
-          return (
-            <li key={tag} className={getClass(tag)} onClick={() => onToggleSelected(tag)}>
-              {tag}
-            </li>
-          );
-        })}
+        {tags.map((tag) => (
+          <li key={tag} className={getClass(tag)} onClick={() => onToggleSelected(tag)}>
+            {tag}
+          </li>
+        ))}
       </ol>
       <button onClick={onAddTag}>新增标签</button>
     </Wrapper>
