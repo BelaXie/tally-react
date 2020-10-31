@@ -45,7 +45,15 @@ const useTags = () => {
       setTags([...tags, { id: createId(), name: tagName }]);
     }
   };
-  return { tags, setTags, addTag, findTag, findTagIndex, updateTag, deleteTag }; //必须使用对象的形式导出，否则ts会报错
+  const getName = (id: number) => {
+    const tag = tags.filter((tag) => tag.id === id)[0];
+    if (tag) {
+      return tag.name;
+    } else {
+      return "";
+    }
+  };
+  return { tags, getName, setTags, addTag, findTag, findTagIndex, updateTag, deleteTag }; //必须使用对象的形式导出，否则ts会报错
 };
 
 export { useTags };
