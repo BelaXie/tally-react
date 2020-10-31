@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import React from "react";
 import { useTags } from "useTags";
+import { createId } from "lib/createId";
 const Wrapper = styled.section`
   background: #ffffff;
   padding: 12px 16px;
@@ -43,10 +44,10 @@ const TagsSection: React.FC<Props> = (props) => {
   const onAddTag = () => {
     const tagName = window.prompt("请输入你要添加的标签名");
     if (tagName) {
-      setTags([...tags, {id: Math.random(),name:tagName}]);
+      setTags([...tags, { id: createId(), name: tagName }]);
     }
   };
-  const getClass = (tagId:number) => (selectedTagIds.indexOf(tagId) >= 0 ? "selected" : "");
+  const getClass = (tagId: number) => (selectedTagIds.indexOf(tagId) >= 0 ? "selected" : "");
   const onToggleSelected = (tagId: number) => {
     if (selectedTagIds.indexOf(tagId) >= 0) {
       props.onChange(selectedTagIds.filter((t) => t !== tagId));
