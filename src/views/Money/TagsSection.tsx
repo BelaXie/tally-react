@@ -1,5 +1,6 @@
 import styled from "styled-components";
-import React, { useState } from "react";
+import React from "react";
+import { useTags } from "useTags";
 const Wrapper = styled.section`
   background: #ffffff;
   padding: 12px 16px;
@@ -33,32 +34,32 @@ const Wrapper = styled.section`
 `;
 
 type Props = {
-  value: string[];
-  onChange: (value: string[]) => void;
+  value: number[];
+  onChange: (value: number[]) => void;
 };
 const TagsSection: React.FC<Props> = (props) => {
-  const [tags, setTags] = useState<string[]>(["衣", "食", "住", "行"]);
-  const selectedTags = props.value;
+  const { tags, setTags } = useTags();
+  const selectedTagIds = props.value;
   const onAddTag = () => {
     const tagName = window.prompt("请输入你要添加的标签名");
     if (tagName) {
-      setTags([...tags, tagName]);
+      setTags([...tags, {id: Math.random(),name:tagName}]);
     }
   };
-  const getClass = (tag: string) => (selectedTags.indexOf(tag) >= 0 ? "selected" : "");
-  const onToggleSelected = (tag: string) => {
-    if (selectedTags.indexOf(tag) >= 0) {
-      props.onChange(selectedTags.filter((t) => t !== tag));
+  const getClass = (tagId:number) => (selectedTagIds.indexOf(tagId) >= 0 ? "selected" : "");
+  const onToggleSelected = (tagId: number) => {
+    if (selectedTagIds.indexOf(tagId) >= 0) {
+      props.onChange(selectedTagIds.filter((t) => t !== tagId));
     } else {
-      props.onChange([...selectedTags, tag]);
+      props.onChange([...selectedTagIds, tagId]);
     }
   };
   return (
     <Wrapper>
       <ol>
         {tags.map((tag) => (
-          <li key={tag} className={getClass(tag)} onClick={() => onToggleSelected(tag)}>
-            {tag}
+          <li key={tag.id} className={getClass(tag.id)} onClick={() => onToggleSelected(tag.id)}>
+            {tag.name}
           </li>
         ))}
       </ol>
