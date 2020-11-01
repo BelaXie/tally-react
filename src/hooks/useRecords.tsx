@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useEffect } from "react";
 import { useUpdate } from "./useUpdate";
-type RecordsItem = {
+export type RecordsItem = {
   tagIds: number[];
   note: string;
   category: "+" | "-";
@@ -17,7 +17,7 @@ export const useRecords = () => {
   }, []);
   useUpdate(() => {
     localStorage.setItem("records", JSON.stringify(records));
-  }, [records]);
+  }, records);
   const addRecords = (newRecord: newRecordsItem) => {
     if (newRecord.tagIds.length === 0) {
       alert("请选择标签");
