@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/tally-react/static/css/main.11b963ea.chunk.css",
+    "main.js": "/tally-react/static/js/main.a4c7d62c.chunk.js",
+    "main.js.map": "/tally-react/static/js/main.a4c7d62c.chunk.js.map",
+    "runtime-main.js": "/tally-react/static/js/runtime-main.ba0551fc.js",
+    "runtime-main.js.map": "/tally-react/static/js/runtime-main.ba0551fc.js.map",
+    "static/js/2.09dfc172.chunk.js": "/tally-react/static/js/2.09dfc172.chunk.js",
+    "static/js/2.09dfc172.chunk.js.map": "/tally-react/static/js/2.09dfc172.chunk.js.map",
+    "index.html": "/tally-react/index.html",
+    "static/css/main.11b963ea.chunk.css.map": "/tally-react/static/css/main.11b963ea.chunk.css.map",
+    "static/js/2.09dfc172.chunk.js.LICENSE.txt": "/tally-react/static/js/2.09dfc172.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.ba0551fc.js",
+    "static/js/2.09dfc172.chunk.js",
+    "static/css/main.11b963ea.chunk.css",
+    "static/js/main.a4c7d62c.chunk.js"
+  ]
+}
